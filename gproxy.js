@@ -13,6 +13,7 @@ function connect_handler(request, socket, head) {
             socket.pipe(client);
         });
     });
+    client.on('error', function () {});
 }
 
 function request_handler(request, response) {
