@@ -1,7 +1,7 @@
 gproxy
 ======
 
-gproxy exploits a Google service hosted at
+gproxy exploits a Google web service hosted at
 `images-onepick-opensocial.googleusercontent.com` (which is commonly used to
 fetch user-provided content, e.g., to load images by URL in Google Documents) to
 proxy arbitrary HTTP(S) traffic.
