@@ -16,7 +16,7 @@ Usage
 
 2. Start the proxy:
 
-        node gproxy.js
+        npm start
 
 3. Use `http://127.0.0.1:8080` as a proxy server. To load HTTPS websites the
    client must also ignore certificate errors, for example:

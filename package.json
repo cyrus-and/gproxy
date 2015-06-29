@@ -1,0 +1,8 @@
+{
+    "name": "gproxy",
+    "author": "Andrea Cardaci <cyrus.and@gmail.com>",
+    "description": "googleusercontent.com as a web proxy",
+    "scripts": {
+        "start": "node gproxy.js"
+    }
+}
