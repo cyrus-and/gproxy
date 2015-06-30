@@ -18,15 +18,18 @@ Usage
 
         npm start
 
-3. Use `http://localhost:8080` as a proxy server. To load HTTPS websites the
-   client must also ignore certificate errors, for example:
+3. Use `http://localhost:8080` as a proxy server in your client configuration
+   for both HTTP and HTTPS traffic. Most programs look for specific environment
+   varibles like `http_proxy` and `https_proxy`. With Bash just:
 
-        google-chrome --ignore-certificate-errors \
-                      --proxy-server=http://localhost:8080
+        export http{,s}_proxy=http://localhost:8080
 
-   or:
+   Note that to load HTTPS websites the client must ignore certificate
+   errors. Some examples:
 
-        curl -k -x http://localhost:8080 https://example.com
+        google-chrome --ignore-certificate-errors
+        curl -k https://example.com
+        wget --no-check-certificate https://example.com
 
 Caveats
 -------
