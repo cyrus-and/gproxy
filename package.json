@@ -1,5 +1,6 @@
 {
     "name": "gproxy",
     "author": "Andrea Cardaci <cyrus.and@gmail.com>",
-    "description": "googleusercontent.com as HTTP(S) proxy"
+    "description": "googleusercontent.com as HTTP(S) proxy",
+    "repository": "cyrus-and/gproxy"
 }
