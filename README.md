@@ -11,22 +11,22 @@ Usage
 
 1. Generate a self-signed certificate (or use the one provided):
 
-        openssl req -keyout key.pem -out cert.pem \
-                -x509 -newkey rsa:2048 -nodes -subj "/CN=127.0.0.1" -days 3650
+        openssl req -x509 -newkey rsa:2048 -nodes -days 3650 \
+                    -subj '/CN=localhost' -keyout key.pem -out cert.pem
 
 2. Start the proxy:
 
         npm start
 
-3. Use `http://127.0.0.1:8080` as a proxy server. To load HTTPS websites the
+3. Use `http://localhost:8080` as a proxy server. To load HTTPS websites the
    client must also ignore certificate errors, for example:
 
         google-chrome --ignore-certificate-errors \
-                      --proxy-server=http://127.0.0.1:8080
+                      --proxy-server=http://localhost:8080
 
    or:
 
-        curl -k -x http://127.0.0.1:8080 https://example.com
+        curl -k -x http://localhost:8080 https://example.com
 
 Caveats
 -------

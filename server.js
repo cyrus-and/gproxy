@@ -51,5 +51,5 @@ http_server.on('connect', connect_handler);
 http_server.on('request', request_handler);
 https_server.on('request', request_handler);
 
-http_server.listen(HTTP_PORT, '127.0.0.1');
-https_server.listen(HTTPS_PORT, '127.0.0.1');
+http_server.listen(HTTP_PORT, 'localhost');
+https_server.listen(HTTPS_PORT, 'localhost');
