@@ -33,5 +33,7 @@ Caveats
 
 * Custom client headers are not forwarded to the server (e.g., no cookies).
 
-* HTTP redirect works but the client will not be aware of that so the URL will
-  not be updated.
+* Redirects work but the client is not aware of that so the URL cannot be
+  properly updated.
+
+* The `content-disposition` response header is lost.

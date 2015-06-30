@@ -33,9 +33,7 @@ function request_handler(request, response) {
     };
 
     var proxy_request = https.request(options, function (proxy_response) {
-        if (proxy_response.headers['content-disposition'] === 'attachment;filename=p.txt') {
-            delete proxy_response.headers['content-disposition'];
-        }
+        delete proxy_response.headers['content-disposition'];
         response.writeHead(proxy_response.statusCode, proxy_response.headers);
         proxy_response.pipe(response);
     });
