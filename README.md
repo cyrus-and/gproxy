@@ -44,7 +44,7 @@ Caveats
 Disclaimer
 ----------
 
-gproxy is just a POC and should be treated as such. Proxying arbitrary web
+gproxy is just a PoC and should be treated as such. Proxying arbitrary web
 traffic is unlikely to be the original purpose of the aforementioned web
 service. Not to mention that even though the client identity is hidden to the
 final server, it is not to Google itself.
