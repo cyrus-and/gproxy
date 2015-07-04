@@ -25,7 +25,7 @@ function request_handler(request, response) {
         url = request.url;
     }
 
-    console.log(url);
+    console.log(request.method, url);
 
     var options = {
         'host': 'images-onepick-opensocial.googleusercontent.com',
