@@ -9,7 +9,8 @@ proxy arbitrary HTTP(S) traffic.
 Usage
 -----
 
-1. Generate a self-signed certificate (or use the one provided):
+1. Generate a self-signed certificate (or skip this step and use the one
+   provided):
 
         openssl req -x509 -newkey rsa:2048 -nodes -days 3650 \
                     -subj '/CN=localhost' -keyout key.pem -out cert.pem
