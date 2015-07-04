@@ -21,7 +21,7 @@ Usage
 
 3. Use `http://localhost:8080` as a proxy server in your client configuration
    for both HTTP and HTTPS traffic. Most programs look for specific environment
-   varibles like `http_proxy` and `https_proxy`. With Bash just:
+   variables like `http_proxy` and `https_proxy`. With Bash just:
 
         export http{,s}_proxy=http://localhost:8080
 
