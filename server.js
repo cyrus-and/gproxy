@@ -3,7 +3,8 @@ var net = require('net');
 var http = require('http');
 var https = require('https');
 
-var HTTP_PORT = 8080;
+var host = process.env.GPROXY_HOST || 'localhost';
+var port = process.env.GPROXY_PORT || 8080;
 var https_port;
 
 function connect_handler(request, socket, head) {
@@ -51,7 +52,9 @@ http_server.on('connect', connect_handler);
 http_server.on('request', request_handler);
 https_server.on('request', request_handler);
 
-http_server.listen(HTTP_PORT, 'localhost');
-https_server.listen(0, 'localhost', function () {
-    https_port = https_server.address().port;
+http_server.listen(port, host, function () {
+    https_server.listen(0, 'localhost', function () {
+        https_port = https_server.address().port;
+        console.log('# gproxy listening on ' + host + ':' + port);
+    });
 });

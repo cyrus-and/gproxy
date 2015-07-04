@@ -32,6 +32,14 @@ Usage
         curl -k https://example.com
         wget --no-check-certificate https://example.com
 
+By default gproxy listens on `localhost:8080` but this can be changed by setting
+two environment variables: `GPROXY_HOST` and `GPROXY_PORT`. For example with:
+
+    export GPROXY_HOST=0.0.0.0
+    export GPROXY_PORT=1234
+
+gproxy will listen on all the local interfaces on port 1234.
+
 Caveats
 -------
 
