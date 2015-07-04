@@ -4,10 +4,10 @@ var http = require('http');
 var https = require('https');
 
 var HTTP_PORT = 8080;
-var HTTPS_PORT = 8443;
+var https_port;
 
 function connect_handler(request, socket, head) {
-    var client = net.connect(HTTPS_PORT, function () {
+    var client = net.connect(https_port, function () {
         socket.write('HTTP/1.1 200 Connection established\r\n\r\n', function () {
             client.pipe(socket);
             socket.pipe(client);
@@ -52,4 +52,6 @@ http_server.on('request', request_handler);
 https_server.on('request', request_handler);
 
 http_server.listen(HTTP_PORT, 'localhost');
-https_server.listen(HTTPS_PORT, 'localhost');
+https_server.listen(0, 'localhost', function () {
+    https_port = https_server.address().port;
+});
