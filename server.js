@@ -52,7 +52,7 @@ try {
     var key = fs.readFileSync(key_name);
     var cert = fs.readFileSync(cert_name);
 } catch (err) {
-    console.log('# falling back to the bundled certificate');
+    console.log('# Falling back to the bundled certificate');
     process.chdir(__dirname);
     key = fs.readFileSync(key_name);
     cert = fs.readFileSync(cert_name);
@@ -68,6 +68,11 @@ https_server.on('request', request_handler);
 http_server.listen(port, host, function () {
     https_server.listen(0, 'localhost', function () {
         https_port = https_server.address().port;
-        console.log('# listening on ' + host + ':' + port);
+        var proxy_url =
+        console.log('# Listening on ' + host + ' on port ' + port);
+        console.log('# Client setup:');
+        console.log('#');
+        console.log('#    export http{,s}_proxy=http://' + host + ':' + port);
+        console.log('#');
     });
 });
