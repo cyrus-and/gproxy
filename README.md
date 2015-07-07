@@ -20,7 +20,7 @@ Usage
 -----
 
 1. Generate a self-signed certificate (or skip this step and use the one
-   bundled):
+   bundled, which has been created for `localhost`, as shown below):
 
         openssl req -x509 -newkey rsa:2048 -nodes -days 3650 \
                     -subj '/CN=localhost' -keyout key.pem -out cert.pem
