@@ -6,22 +6,42 @@ gproxy exploits a Google web service hosted at
 fetch user-provided content, e.g., to load images by URL in Google Documents) to
 proxy arbitrary HTTP(S) traffic.
 
+Installation
+------------
+
+Install with:
+
+    npm install -g git://github.com/cyrus-and/gproxy.git
+
+Note that a global installation is not mandatory, just start the proxy with `npm
+start` from this directory.
+
 Usage
 -----
 
 1. Generate a self-signed certificate (or skip this step and use the one
-   provided):
+   bundled):
 
         openssl req -x509 -newkey rsa:2048 -nodes -days 3650 \
                     -subj '/CN=localhost' -keyout key.pem -out cert.pem
 
-2. Start the proxy:
+   Certificates (`key.pem` and `cert.pem`) in the current working directory will
+   have the precedence over the one bundled.
 
-        npm start
+2. Start the proxy, optionally also specifying host and port. By default gproxy
+   listens on `localhost:8080` but this can be changed by setting two
+   environment variables: `GPROXY_HOST` and `GPROXY_PORT`. For example with:
 
-3. Use `http://localhost:8080` as a proxy server in your client configuration
-   for both HTTP and HTTPS traffic. Most programs look for specific environment
-   variables like `http_proxy` and `https_proxy`. With Bash just:
+        export GPROXY_HOST=0.0.0.0
+        export GPROXY_PORT=1234
+        gproxy
+
+   gproxy will listen on all the local interfaces on port `1234`.
+
+3. Use `http://localhost:8080` (or whatever has been chosen) as a proxy server
+   in your client configuration for both HTTP and HTTPS traffic. Most programs
+   look for specific environment variables like `http_proxy` and
+   `https_proxy`. With Bash just:
 
         export http{,s}_proxy=http://localhost:8080
 
@@ -31,14 +51,6 @@ Usage
         google-chrome --ignore-certificate-errors
         curl -k https://example.com
         wget --no-check-certificate https://example.com
-
-By default gproxy listens on `localhost:8080` but this can be changed by setting
-two environment variables: `GPROXY_HOST` and `GPROXY_PORT`. For example with:
-
-    export GPROXY_HOST=0.0.0.0
-    export GPROXY_PORT=1234
-
-gproxy will listen on all the local interfaces on port 1234.
 
 Caveats
 -------

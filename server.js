@@ -1,7 +1,13 @@
+#!/usr/bin/env node
+
 var fs = require('fs');
 var net = require('net');
 var http = require('http');
 var https = require('https');
+var path = require('path');
+
+var key_name = 'key.pem';
+var cert_name = 'cert.pem';
 
 var host = process.env.GPROXY_HOST || 'localhost';
 var port = process.env.GPROXY_PORT || 8080;
@@ -42,11 +48,18 @@ function request_handler(request, response) {
     request.pipe(proxy_request);
 }
 
+try {
+    var key = fs.readFileSync(key_name);
+    var cert = fs.readFileSync(cert_name);
+} catch (err) {
+    console.log('# falling back to the bundled certificate');
+    process.chdir(__dirname);
+    key = fs.readFileSync(key_name);
+    cert = fs.readFileSync(cert_name);
+}
+
 var http_server = http.createServer();
-var https_server = https.createServer({
-    'key': fs.readFileSync('key.pem'),
-    'cert': fs.readFileSync('cert.pem')
-});
+var https_server = https.createServer({'key': key, 'cert': cert});
 
 http_server.on('connect', connect_handler);
 http_server.on('request', request_handler);
@@ -55,6 +68,6 @@ https_server.on('request', request_handler);
 http_server.listen(port, host, function () {
     https_server.listen(0, 'localhost', function () {
         https_port = https_server.address().port;
-        console.log('# gproxy listening on ' + host + ':' + port);
+        console.log('# listening on ' + host + ':' + port);
     });
 });

@@ -2,5 +2,6 @@
     "name": "gproxy",
     "author": "Andrea Cardaci <cyrus.and@gmail.com>",
     "description": "googleusercontent.com as HTTP(S) proxy",
-    "version": "0.0.0"
+    "version": "0.0.0",
+    "bin": "./server.js"
 }
