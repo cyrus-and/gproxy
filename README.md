@@ -13,8 +13,11 @@ Install with:
 
     npm install -g git://github.com/cyrus-and/gproxy.git
 
-Note that a global installation is not mandatory, just start the proxy with `npm
-start` from this directory.
+Note that a global installation is not mandatory; the proxy can be started with
+`npm start` from the main directory. In that case, it may be easier to download
+the [ZIP][zip] archive or clone the repo, instead of using `npm install`:
+
+    git clone https://github.com/cyrus-and/gproxy.git
 
 Usage
 -----
@@ -69,3 +72,5 @@ gproxy is just a PoC and should be treated as such. Proxying arbitrary web
 traffic is unlikely to be the original purpose of the aforementioned web
 service. Not to mention that even though the client identity is hidden to the
 final server, it is not to Google itself.
+
+[zip]: https://github.com/cyrus-and/gproxy/archive/master.zip
