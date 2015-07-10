@@ -65,9 +65,9 @@ http_server.on('connect', connect_handler);
 http_server.on('request', request_handler);
 https_server.on('request', request_handler);
 
-http_server.listen(port, host, function () {
-    https_server.listen(0, 'localhost', function () {
-        https_port = https_server.address().port;
+https_server.listen(0, 'localhost', function () {
+    https_port = https_server.address().port;
+    http_server.listen(port, host, function () {
         console.log('# Listening on ' + host + ' on port ' + port);
         console.log('# Client setup:');
         console.log('#');
