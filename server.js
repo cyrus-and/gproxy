@@ -68,7 +68,6 @@ https_server.on('request', request_handler);
 http_server.listen(port, host, function () {
     https_server.listen(0, 'localhost', function () {
         https_port = https_server.address().port;
-        var proxy_url =
         console.log('# Listening on ' + host + ' on port ' + port);
         console.log('# Client setup:');
         console.log('#');
