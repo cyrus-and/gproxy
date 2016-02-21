@@ -19,8 +19,13 @@ the [ZIP][zip] archive or clone the repo, instead of using `npm install`:
 
     git clone https://github.com/cyrus-and/gproxy.git
 
-Usage
------
+Quick start
+-----------
+
+Just run `gproxy` and follow the instructions to configure the clients.
+
+Advanced usage
+--------------
 
 1. Generate a self-signed certificate (or skip this step and use the one
    bundled, which has been created for `localhost`, as shown below):
