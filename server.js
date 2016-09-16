@@ -70,9 +70,10 @@ https_server.listen(0, 'localhost', function () {
     http_server.listen(port, host, function () {
         console.log('# Listening on ' + host + ' on port ' + port);
         console.log('#');
-        console.log('# Client setup:');
+        console.log('# Client setup (Bash):');
         console.log('#');
         console.log('#    export http{,s}_proxy=http://' + host + ':' + port);
+        console.log('#    unset  http{,s}_proxy');
         console.log('#');
     });
 });
