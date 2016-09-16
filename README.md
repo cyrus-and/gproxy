@@ -44,7 +44,7 @@ Advanced usage
         export GPROXY_PORT=1234
         gproxy
 
-   gproxy will listen on all the local interfaces on port `1234`.
+   gproxy will listen on all the interfaces on port `1234`.
 
 3. Use `http://localhost:8080` (or whatever has been chosen) as a proxy server
    in your client configuration for both HTTP and HTTPS traffic. Most programs
@@ -65,8 +65,8 @@ Caveats
 
 * Custom client headers are not forwarded to the server (e.g., no cookies).
 
-* Redirects work but the client is not aware of that so the URL cannot be
-  properly updated.
+* Redirects are performed by the server, this means that the client is not aware
+  of the new location.
 
 * The `content-disposition` response header is lost.
 
