@@ -1,3 +1,7 @@
+**As of September 2020 this no longer works, it was fun while it lasted.**
+
+---
+
 gproxy
 ======
 
